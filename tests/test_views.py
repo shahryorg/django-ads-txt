@@ -1,6 +1,12 @@
+import django
+
 from django.test import Client, TestCase
+
 from ads_txt.models import Rule
-from django.urls import reverse
+if django.VERSION[:2] >= (2, 0):
+    from django.urls import reverse
+else:
+    from django.core.urlresolvers import reverse
 
 
 class AdsTxtTest(TestCase):
