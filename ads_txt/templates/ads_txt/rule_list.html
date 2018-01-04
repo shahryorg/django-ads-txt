@@ -1,0 +1,7 @@
+{% load l10n %}
+{% if rules %}
+{% for rule in rules %}
+{{ rule.domain }}, {{ rule.account_id }}, {{ rule.account_type }}{% if rule.authority_id %}, {{ rule.authority_id }}{% endif %}<br>
+{% endfor %}
+{% endif %}
+
