@@ -1,19 +1,41 @@
 language: python
-
+sudo: false
 python:
-  - "2.7"
-  - "3.4"
-  - "3.5"
-  - "3.6"
-
+- 3.6
+- 3.5
+- 3.4
+- 2.7
+env:
+  matrix:
+  - TOXENV='pep8'
+  - TOXENV='isort'
+  - DJANGO='django190'
+  - DJANGO='django110'
+  - DJANGO='django111'
+  - DJANGO='django200'
 install:
-  - pip install tox-travis
-  - pip install coverage
-
-script:
-  - tox
-  - coverage run --source icon_font_to_png -m py.test
-  - coverage report -m
-
+- pip install -U tox>=1.8 codecov
+- if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then export PYVER=py27; fi
+- if [[ $TRAVIS_PYTHON_VERSION == '3.4' ]]; then export PYVER=py34; fi
+- if [[ $TRAVIS_PYTHON_VERSION == '3.5' ]]; then export PYVER=py35; fi
+- if [[ $TRAVIS_PYTHON_VERSION == '3.6' ]]; then export PYVER=py36; fi
+- if [[ ${DJANGO}z != 'z' ]]; then export TOXENV=$PYVER-$DJANGO; fi
+script: COMMAND='coverage run' tox -e$TOXENV
 after_success:
-  - coveralls
+- codecov
+matrix:
+  exclude:
+  - python: 2.7
+    env: TOXENV='pep8'
+  - python: 2.7
+    env: TOXENV='isort'
+  - python: 2.7
+    env: DJANGO='django200'
+  - python: 3.4
+    env: TOXENV='pep8'
+  - python: 3.4
+    env: TOXENV='isort'
+  - python: 3.5
+    env: TOXENV='pep8'
+  - python: 3.5
+    env: TOXENV='isort'
