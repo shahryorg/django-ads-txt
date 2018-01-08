@@ -1,5 +1,5 @@
-from django.views.generic import ListView
 from django.views.decorators.cache import cache_page
+from django.views.generic import ListView
 
 from ads_txt import settings
 from ads_txt.models import Rule
