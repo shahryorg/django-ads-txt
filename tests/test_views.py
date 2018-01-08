@@ -1,8 +1,7 @@
-import django
-
 from django.test import Client, TestCase
 
 from ads_txt.models import Rule
+
 
 class AdsTxtTest(TestCase):
 
