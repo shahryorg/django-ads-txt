@@ -15,7 +15,7 @@ DEFAULT_SETTINGS = dict(
             'ENGINE': 'django.db.backends.sqlite3'
         }
     },
-    ROOT_URLCONF='tests.test_utils.urls',
+    ROOT_URLCONF='test_utils.urls',
     SITE_ID=1,
     MIDDLEWARE_CLASSES=[
         'django.middleware.http.ConditionalGetMiddleware',
