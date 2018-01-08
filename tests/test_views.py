@@ -3,11 +3,6 @@ import django
 from django.test import Client, TestCase
 
 from ads_txt.models import Rule
-if django.VERSION[:2] >= (2, 0):
-    from django.urls import reverse
-else:
-    from django.core.urlresolvers import reverse
-
 
 class AdsTxtTest(TestCase):
 
@@ -20,7 +15,6 @@ class AdsTxtTest(TestCase):
                             )
 
     def test_get_ads_txt(self):
-
-        response = self.client.get(reverse('ads_txt_rule_list'))
+        response = self.client.get('/')
         self.assertEqual(response.status_code, 200)
         self.assertIn('test.com', str(response.content))
