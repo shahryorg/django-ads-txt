@@ -63,7 +63,7 @@ ex.com, 7118, RESELLER
 
 ### Caching
 
-You can optionally cache the generation of the ads.txt. Add or change the ROBOTS_CACHE_TIMEOUT setting with a value in seconds in your Django settings file:
+You can optionally cache the generation of the ads.txt. Add or change the ADSTXT_CACHE_TIMEOUT setting with a value in seconds in your Django settings file:
 ```bash
 ADSTXT_CACHE_TIMEOUT = 60*60*24
 ```
