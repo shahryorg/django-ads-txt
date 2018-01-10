@@ -51,7 +51,7 @@ description of the syntax of this format:
 | Domain (Required)       | Domain name of the advertising system                                                 |
 | Account ID (Required)   | The identifier associated with the seller or reseller account                         |
 | Account type (Required) | Type of Account/Relationship. It has two values `DIRECT` and `RESELLER`               |
-| Authority ID (Optional) | An ID that uniquely identifies theadvertising system within a certification authority |
+| Authority ID (Optional) | An ID that uniquely identifies the advertising system within a certification authority |
 
 ### Examples:
 ```bash
