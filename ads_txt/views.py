@@ -19,7 +19,7 @@ class RuleList(ListView):
         super_dispatch = super(RuleList, self).dispatch
         if not cache_timeout:
             return super_dispatch(request, *args, **kwargs)
-        cache_decorator = cache_page(cache_timeout)
+        cache_decorator = cache_page(cache_timeout, key_prefix="ads_txt_")
         return cache_decorator(super_dispatch)(request, *args, **kwargs)
 
 
