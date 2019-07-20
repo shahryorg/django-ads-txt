@@ -9,6 +9,7 @@ class RuleList(ListView):
     model = Rule
     context_object_name = 'rules'
     cache_timeout = settings.CACHE_TIMEOUT
+    content_type = 'text/plain'
 
     def get_cache_timeout(self):
         return self.cache_timeout
