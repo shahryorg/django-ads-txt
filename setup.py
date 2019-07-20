@@ -9,12 +9,13 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-ads-txt',
-    version='0.1.1',
+    version='0.1.2',
     packages=find_packages(),
     include_package_data=True,
     license='MIT License',
     description='A simple Django app to manage ads.txt file from admin panel',
     long_description=README,
+    long_description_content_type='text/markdown',
     url='https://github.com/flyingelephantlab/django-ads-txt',
     author='Ahmed Alwerdani',
     author_email='alwerdani@gmail.com',
