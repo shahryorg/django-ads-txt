@@ -55,7 +55,7 @@ class BulkRulesForm(forms.Form):
             matches.append(match.groupdict())
 
         if errors:
-            raise forms.ValidationError(_('Error reading lines:\n') + '\n'.join(errors))
+            raise forms.ValidationError(_('Error reading lines:\n') + ',\n'.join(errors))
 
         cleaned_data['ads_rules'] = matches
         return cleaned_data
