@@ -7,7 +7,10 @@ DEFAULT_SETTINGS = dict(
     INSTALLED_APPS=[
         'django.contrib.auth',
         'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.admin',
         'django.contrib.sites',
+        'django.contrib.messages',
         'ads_txt',
     ],
     DATABASES={
@@ -17,7 +20,7 @@ DEFAULT_SETTINGS = dict(
     },
     ROOT_URLCONF='test_utils.urls',
     SITE_ID=1,
-    MIDDLEWARE_CLASSES=[
+    MIDDLEWARE=[
         'django.middleware.http.ConditionalGetMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -29,7 +32,15 @@ DEFAULT_SETTINGS = dict(
     TEMPLATES=[{
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'APP_DIRS': True,
-    }]
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    }],
 )
 
 
