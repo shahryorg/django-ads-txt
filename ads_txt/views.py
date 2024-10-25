@@ -69,7 +69,11 @@ class UploadRulesFormView(FormView):
     def form_valid(self, form):
         ads_list = form.cleaned_data.get('ads_rules')
         for ads_dict in ads_list:
-            Rule.objects.get_or_create(**ads_dict)
+            try:
+                Rule.objects.get_or_create(**ads_dict)
+            except Rule.MultipleObjectsReturned:
+                Rule.objects.filter(**ads_dict).delete()
+                Rule.objects.get_or_create(**ads_dict)
 
         messages.add_message(self.request, messages.SUCCESS, _('ads.txt rules updated with success'))
         return HttpResponseRedirect(self.get_success_url())
