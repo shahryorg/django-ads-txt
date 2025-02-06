@@ -35,7 +35,7 @@ https://github.com/flyingelephantlab/django-ads-txt/
 3. To activate ads.txt generation on your Django site, add this line to your [URLconf](https://docs.djangoproject.com/en/dev/topics/http/urls/):
 
 ```python
-url(r'^ads\.txt', include('ads_txt.urls')),
+url(r'^', include('ads_txt.urls')),
 ```
 4. Add the domains you need to appear from admin panel
 
